@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Viewer</title>
+</head>
+
+<body>
+    <img id="webcamImage" src="" alt="Webcam Image">
+    <p id="timestamp"></p>
+
+    <script>
+        function formatTimestamp(timestampString) {
+            // Convert timestamp to Date object
+            var timestamp = new Date(timestampString);
+
+            // Format timestamp as human-readable based on user's browser timezone
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            var formattedTimestamp = new Intl.DateTimeFormat('en-US', options).format(timestamp);
+
+            return formattedTimestamp;
+        }
+
+        function updateImage() {
+            var image = document.getElementById("webcamImage");
+            var timestampElement = document.getElementById("timestamp");
+
+            // Add a random parameter to force image reload
+            image.src = "/webcam_images/latest.jpeg?rand=" + Math.random();
+
+            // Fetch timestamp from "latest.txt" file
+            fetch("/webcam_images/latest.txt")
+                .then(response => response.text())
+                .then(timestamp => {
+                    console.info("latest.txt contents:", timestamp);
+                    var formattedTimestamp = formatTimestamp(timestamp.trim());
+                    timestampElement.innerHTML = formattedTimestamp;
+                })
+                .catch(error => {
+                    console.error("Error fetching timestamp:", error);
+                });
+        }
+
+        // Update image every 5 seconds
+        setInterval(updateImage, 5000);
+
+        // Initial call to load timestamp
+        updateImage();
+    </script>
+</body>
+
+</html>
