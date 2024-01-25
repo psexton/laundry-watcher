@@ -31,7 +31,7 @@
             image.src = "/webcam_images/latest.jpeg?rand=" + Math.random();
 
             // Fetch timestamp from "latest.txt" file
-            fetch("/webcam_images/latest.txt")
+            fetch("/webcam_images/latest.txt", {cache: "no-store"})
                 .then(response => response.text())
                 .then(timestamp => {
                     console.info("latest.txt contents:", timestamp);
