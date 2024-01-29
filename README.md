@@ -13,8 +13,10 @@ Reuses the existing nginx setup running on the default debian beaglebone image. 
 
 ## Running
 
+After installation, the capture_image script will run automatically every 5 minutes. It can be invoked manually with:
+
 ```
-sudo ./capture_image.sh
+systemctl start laundry-watcher-capture-image.service
 ```
 
 Will run in an infinite loop, updating the image every 5 seconds.
