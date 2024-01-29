@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+apt install fswebcam
+
 # set up the html viewer
 cp viewer.html /var/www/html/index.html
 mkdir -p /var/www/html/webcam_images
