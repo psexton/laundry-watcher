@@ -11,7 +11,7 @@ latest_symlink="$image_dir/latest.jpeg"
 # Capture image using fswebcam
 fswebcam -r 1280x720 --jpeg 95 -D 1 --no-banner "$image_path"
 
-echo "Image captured at $timestamp, and saved to $image_path"
+echo "Image captured at $timestamp"
 
 # Write timestamp to "latest.txt" file
 echo "$timestamp" >"$latest_txt"

@@ -11,19 +11,21 @@ sudo ./install.sh
 
 Reuses the existing nginx setup running on the default debian beaglebone image. We just need to replace the `index.html` file served up on port 80, and create a place to save the images to.
 
-## Running
+* Images are saved to `/var/www/html/webcam_images`.
+* The script is installed as a systemd service, and triggered via a systemd timer every 5 minutes.
 
-After installation, the capture_image script will run automatically every 5 minutes. It can be invoked manually with:
+## Running manually
+
+It can be invoked manually with:
 
 ```
-systemctl start laundry-watcher-capture-image.service
+$ sudo systemctl start laundry-watcher-capture-image.service
 ```
 
-Will run in an infinite loop, updating the image every 5 seconds.
+or extra-manually with:
 
-Output looks like this:
 ```
-$ sudo ./capture_image.sh
+$ sudo /opt/laundry-watcher/capture_image.sh
 --- Opening /dev/video0...
 Trying source module v4l2...
 /dev/video0 opened.
@@ -34,19 +36,6 @@ Captured frame in 0.00 seconds.
 --- Processing captured image...
 Setting output format to JPEG, quality 95
 Disabling banner.
-Writing JPEG image to '/var/www/html/webcam_images/20240125_183326.jpg'.
-Image captured at 2024-01-25T18:33:26Z
---- Opening /dev/video0...
-Trying source module v4l2...
-/dev/video0 opened.
-No input was specified, using the first.
-Delaying 1 seconds.
---- Capturing frame...
-Captured frame in 0.00 seconds.
---- Processing captured image...
-Setting output format to JPEG, quality 95
-Disabling banner.
-Writing JPEG image to '/var/www/html/webcam_images/20240125_183335.jpg'.
-Image captured at 2024-01-25T18:33:35Z
-<!--- and so forth --->
+Writing JPEG image to '/var/www/html/webcam_images/20240129_185329.jpg'.
+Image captured at 2024-01-29T18:53:29Z
 ```
