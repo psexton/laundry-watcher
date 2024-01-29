@@ -1,0 +1,10 @@
+[Unit]
+Description=Captures webcam image for the laundry watcher
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/laundry-watcher/capture_image.sh
+
+[Install]
+WantedBy=default.target
