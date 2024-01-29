@@ -2,10 +2,10 @@
 
 # set up the html viewer
 cp viewer.html /var/www/html/index.html
-mkdir /var/www/html/webcam_images
+mkdir -p /var/www/html/webcam_images
 
 # set up the capture_image script
-mkdir /opt/laundry-watcher
+mkdir -p /opt/laundry-watcher
 cp capture_image.sh /opt/laundry-watcher
 chmod 755 /opt/laundry-watcher/capture_image.sh
 
