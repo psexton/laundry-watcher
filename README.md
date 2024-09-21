@@ -1,7 +1,9 @@
 # laundry-watcher
 Washing machine status and notifications using image recognition
 
-Status: webcam usage proof of concept
+Status: Abandoned. Because life is funny, shortly after I started working on this project, the washing maching stopped working and had to be replaced. The replacement has WiFi built in, and [some sort of cloud account](https://www.geappliances.com/connect), which I don't use, but which Home Assistant [can hook into](https://github.com/simbaja/ha_gehome). Not ideal, but Good Enough.
+
+Previous status: webcam usage proof of concept
 
 ## Installing
 
