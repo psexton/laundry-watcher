@@ -1,9 +1,14 @@
+## ⚠️ Project Abandoned ⚠️
+I started working on this project because I wanted to get notifications when the washing machine was done. My first attempt was to measure the power usage, using an energy monitoring smart plug. I couldn't get that to work, the data was just too noisy, and I couldn't get it to reliably distinguish between "wash is done" and "pause between wash and rinse cycles". My second attempt, found here, was to use a webcam and beaglebone black I had lying around to do image recognition on the indicator lights.
+
+Because life is funny, shortly after I started working on that, the washing maching stopped working and had to be replaced. The replacement has WiFi built in, and [some sort of cloud account](https://www.geappliances.com/connect), which I don't use, but which Home Assistant [can hook into](https://github.com/simbaja/ha_gehome). Not ideal, but Good Enough.
+
+---
+
 # laundry-watcher
 Washing machine status and notifications using image recognition
 
-Status: Abandoned. Because life is funny, shortly after I started working on this project, the washing maching stopped working and had to be replaced. The replacement has WiFi built in, and [some sort of cloud account](https://www.geappliances.com/connect), which I don't use, but which Home Assistant [can hook into](https://github.com/simbaja/ha_gehome). Not ideal, but Good Enough.
-
-Previous status: webcam usage proof of concept
+Status: webcam usage proof of concept
 
 ## Installing
 
